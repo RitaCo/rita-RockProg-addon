@@ -1,7 +1,7 @@
 <?php
-namespace Learning\Controller\Admin;
+namespace RockProg\Controller\Admin;
 
-use Learning\Controller\AppController;
+use RockProg\Controller\AppController;
 
 class CategoriesController extends AppController
 {
@@ -20,7 +20,7 @@ class CategoriesController extends AppController
     /**
      * View method
      *
-     * @param string|null $id Learning Category id.
+     * @param string|null $id RockProg Category id.
      * @return void
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -57,7 +57,7 @@ class CategoriesController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Learning Category id.
+     * @param string|null $id RockProg Category id.
      * @return void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
@@ -82,7 +82,7 @@ class CategoriesController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Learning Category id.
+     * @param string|null $id RockProg Category id.
      * @return void Redirects to index.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */

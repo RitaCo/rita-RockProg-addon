@@ -5,12 +5,12 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use RockProg\Model\Entity\Category;
+use RockProg\Model\Entity\Type;
 
 /**
- * Categories Model
+ * Types Model
  */
-class CategoriesTable extends Table
+class TypesTable extends Table
 {
 
     /**
@@ -21,7 +21,7 @@ class CategoriesTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('rockprog_categories');
+        $this->table('rockprog_types');
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');

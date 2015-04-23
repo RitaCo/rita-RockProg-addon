@@ -4,9 +4,9 @@ namespace RockProg\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity.
+ * Type Entity.
  */
-class Category extends Entity
+class Type extends Entity
 {
 
     /**

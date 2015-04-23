@@ -1,7 +1,7 @@
 <?php
-namespace Learning\Controller\Front;
+namespace RockProg\Controller\Front;
 
-use Learning\Controller\AppController;
+use RockProg\Controller\AppController;
 
 class CategoriesController extends AppController
 {
