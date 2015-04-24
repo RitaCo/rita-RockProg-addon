@@ -10,7 +10,7 @@ Router::scope('/', ['prefix' => 'front'], function ($routes) {
             [
                 'id' => '[0-9]+',
                 'pass' => ['id', 'slug'],
-                '_name' => 'Learning.post'  
+                '_name' => 'www.post'  
             ]
          );
          
@@ -20,7 +20,7 @@ Router::scope('/', ['prefix' => 'front'], function ($routes) {
             [
                 'id' => '[0-9]+',
                 'pass' => ['id', 'slug'],
-                '_name' => 'Learning.cat'   
+                '_name' => 'www.cat'   
             ]
          );
          
@@ -31,8 +31,8 @@ Router::scope('/', ['prefix' => 'front'], function ($routes) {
 
 
 Router::prefix('admin',  function ($routes) {
-    $routes->plugin('Learning', function ($routes) {
-         $routes->redirect('/', ['controller' => 'posts', 'action' => 'index']);
+    $routes->plugin('RockProg',['path' => '/rockprog'], function ($routes) {
+         $routes->redirect('/', ['controller' => 'programs', 'action' => 'index']);
          $routes->fallbacks();
     });
 

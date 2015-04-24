@@ -1,6 +1,6 @@
 <?php
-   $this->assign('title','مدیریت / موضوع‌ها');
-   $this->assign('note','فهرست تمامی موضوع‌ها');
+   $this->Rita->setCaption('برنامه‌ها')->setCaption ('موضوعات اصلی');
+   $this->Rita->setNote('فهرست تمامی موضوع‌ها');
 ?>
 <div class="ui-panel-framed ">
 	<div class="panel-header bg-flat">
