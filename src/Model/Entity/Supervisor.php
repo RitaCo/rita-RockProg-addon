@@ -4,9 +4,9 @@ namespace RockProg\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Category Entity.
+ * RockprogSupervisor Entity.
  */
-class Category extends Entity
+class Supervisor extends Entity
 {
 
     /**
@@ -15,9 +15,10 @@ class Category extends Entity
      * @var array
      */
     protected $_accessible = [
-        'title' => true,
-        'about' => true,
-        'slug' => true,
-        'report' => true
+        'first_name' => true,
+        'last_name' => true,
+        'bio' => true,
+        'mobile' => true,
+        'email' => true,
     ];
 }

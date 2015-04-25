@@ -1,5 +1,5 @@
 <?php
-   $this->Rita->setCaption('برنامه‌ها')->setCaption ('موضوعات اصلی');
+   $this->Rita->setCaption('کارگروه‌ها')->setCaption ('فهرست');
    $this->Rita->setNote('فهرست تمامی موضوع‌ها');
 ?>
 <div class="ui-panel-framed ">
@@ -28,19 +28,18 @@
             <th width="25px"><?= $this->Paginator->sort('id','#') ?></th>
             <th><?= $this->Paginator->sort('title','عنوان') ?></th>
             <th><?= $this->Paginator->sort('slug','نامک') ?></th>
-            <th><?= $this->Paginator->sort('report','گزارش') ?></th>
             <th width="100px"><?= $this->Paginator->sort('created','ثبت شده') ?></th>
             
             <th class="actions" style="width: 140px;"><?= __('عملیات') ?></th>
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($Categories as $learningCategory): ?>
+    <?php foreach ($types as $learningCategory): ?>
         <tr>
             <td><?= $this->Number->format($learningCategory->id) ?></td>
             <td><?= h($learningCategory->title) ?></td>
             <td><?= h($learningCategory->slug) ?></td>
-            <td><?= ($learningCategory->report)? 'دارد':'ندارد'; ?></td>
+
             <td><?= h($learningCategory->created) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('ویرایش'), ['action' => 'edit', $learningCategory->id],['class' => 'btn']) ?>

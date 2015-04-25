@@ -5,15 +5,21 @@
 							</a>
 							<ul class="menu-submenu">
 								<li>
+									<a href="/admin/rockprog/programs">
+										<div class="icon"><i class="  icon-list-alt"></i></div>
+										<div class="label">برنامه ها</div>
+									</a>
+								</li>
+								<li>
 									<a href="/admin/rockprog/categories">
 										<div class="icon"><i class="  icon-list-alt"></i></div>
-										<div class="label">مدیریت فعالیت‌ها</div>
+										<div class="label">فعالیت‌ها</div>
 									</a>
 								</li>
 								<li>
 									<a href="/admin/rockprog/types">
 										<div class="icon"><i class="fa fa-calendar"></i></div>
-										<div class="label">مدیریت برنامه‌ها</div>
+										<div class="label">کارگروه‌ها</div>
 									</a>
 								</li>
 							</ul>							

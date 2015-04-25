@@ -25,6 +25,7 @@ class CategoriesTable extends Table
         $this->displayField('title');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Rita/Tools.Slug');
     }
 
     /**
@@ -40,10 +41,9 @@ class CategoriesTable extends Table
             ->allowEmpty('id', 'create')
             ->requirePresence('title', 'create')
             ->notEmpty('title')
-            ->requirePresence('note', 'create')
-            ->notEmpty('note')
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->requirePresence('about', 'create')
+            ->notEmpty('about');
+
 
         return $validator;
     }
