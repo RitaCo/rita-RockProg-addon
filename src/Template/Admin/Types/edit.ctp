@@ -1,13 +1,15 @@
 <?php
-   $this->assign('title','مدیریت / موضوع‌ها');
-   $this->assign('note','فهرست تمامی موضوع‌ها');
+   $this->Rita->setPageCaption('برنامه‌ها')
+   ->setPageCaption('نوع برنامه‌ها')
+   ->setPageCaption('ویرایش نوع فعالیت')
+   ->setPageNote('همینک می‌توانید مشخصات نع مورد نظر خود را اصلاح نمایید');
 ?>
 <div class="ui-panel-framed ">
 	<div class="panel-header bg-flat">
 		<div class="header-caption">فهرست</div>
 	</div>
 	<div class="panel-body padding-none ">
-      <?= $this->Form->create($Category); ?>
+      <?= $this->Form->create($type); ?>
 		<div class="body-header padding-none">
 			<div class="ui-toolbar">
 				<div class="toolbar-band ">
@@ -23,15 +25,14 @@
         
 		<div class="body-container padding-none">
         <?php
-            echo $this->Form->input('title',[ 'label' => 'عنوان موضوع']);
-            echo $this->Form->input('about',[ 'label' => 'درباره موضوع']);
-            echo $this->Form->input('report',[ 'label' => 'گزارش دارد؟']);
+            echo $this->Form->input('title',[ 'label' => 'عنوان']);
             echo $this->Form->input('slug',[ 'label' => 'نامک']);
         ?>
 
 	</div>
     <div class="body-footer ">
-        <?= $this->Form->submit(__('ذخیره')) ?>
+           		<?= $this->Html->bottunIcon('بازگشت','mdi-forward',['action' => 'index']); ?>
+                <?= $this->Form->submit(__('ذخیره')) ?>	
     </div>
           
     <?= $this->Form->end() ?>

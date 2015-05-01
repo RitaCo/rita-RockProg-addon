@@ -3,14 +3,14 @@ namespace RockProg\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
-use Rita\Core\ORM\Table;
+use Cake\ORM\Table;
 use Cake\Validation\Validator;
-use RockProg\Model\Entity\RockprogSupervisor;
+use RockProg\Model\Entity\RockprogDetail;
 
 /**
- * RockprogSupervisors Model
+ * RockprogDetails Model
  */
-class SupervisorsTable extends Table
+class RockprogDetailsTable extends Table
 {
 
     /**
@@ -21,11 +21,13 @@ class SupervisorsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('rockprog_supervisors');
-        $this->displayField('title');
+        $this->table('rockprog_details');
+        $this->displayField('id');
         $this->primaryKey('id');
-        $this->addBehavior('Timestamp');
-        $this->addBehavior('Rita/Tools.Slug');
+        $this->belongsTo('Programs', [
+            'foreignKey' => 'program_id',
+            'className' => 'RockProg.Programs'
+        ]);
     }
 
     /**
@@ -39,15 +41,11 @@ class SupervisorsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->requirePresence('first_name', 'create')
-            ->notEmpty('first_name')
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name')
-            ->requirePresence('bio', 'create')
-            ->notEmpty('bio')
-            ->allowEmpty('mobile')
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->allowEmpty('email');
+            ->allowEmpty('location')
+            ->allowEmpty('accessories')
+            ->allowEmpty('note')
+            ->allowEmpty('about')
+            ->allowEmpty('condition');
 
         return $validator;
     }
@@ -61,7 +59,7 @@ class SupervisorsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['program_id'], 'Programs'));
         return $rules;
     }
 }

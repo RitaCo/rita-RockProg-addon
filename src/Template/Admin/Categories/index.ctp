@@ -1,6 +1,7 @@
 <?php
-   $this->Rita->setCaption('برنامه‌ها')->setCaption ('موضوعات اصلی');
-   $this->Rita->setNote('فهرست تمامی موضوع‌ها');
+   $this->Rita->setPageCaption('برنامه‌ها')
+   ->setPageCaption('گروه‌بندی فعالیت‌ها');
+   $this->Rita->setPageNote('تمامی گروه‌های تعیین شده برای فعالیت‌ها به شرح ذیل می‌باشد');
 ?>
 <div class="ui-panel-framed ">
 	<div class="panel-header bg-flat">
@@ -10,10 +11,7 @@
 		<div class="body-header padding-none">
 			<div class="ui-toolbar">
 				<div class="toolbar-band ">
-					<a class="btn" href="<?= $this->Url->build(['action' => 'add'])?>">	
-						<i class="  icon-createfolder"></i>
-						<span>جدید</span>
-					</a>
+					<?= $this->Html->bottunIcon('گروه جدید', 'mdi-plus-circle',['action' => 'add'] ); ?>
 					
 				</div>
 			</div>
@@ -43,8 +41,8 @@
             <td><?= ($learningCategory->report)? 'دارد':'ندارد'; ?></td>
             <td><?= h($learningCategory->created) ?></td>
             <td class="actions">
-                <?= $this->Html->link(__('ویرایش'), ['action' => 'edit', $learningCategory->id],['class' => 'btn']) ?>
-                <?= $this->Form->postLink(__('حذف'), ['action' => 'delete', $learningCategory->id], ['class' => 'btn', 'confirm' => __('Are you sure you want to delete # {0}?', $learningCategory->id)]) ?>
+                <?= $this->Html->link(__('ویرایش'), ['action' => 'edit', $learningCategory->id],['class' => 'btn btn-green']) ?>
+                <?= $this->Form->postLink(__('حذف'), ['action' => 'delete', $learningCategory->id], ['class' => 'btn btn-red', 'confirm' => __('آیااطمینان کامل دارید از حذف رکورد # {0}؟', $learningCategory->id)]) ?>
             </td>
         </tr>
     <?php endforeach; ?>

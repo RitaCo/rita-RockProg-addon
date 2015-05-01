@@ -1,49 +1,62 @@
-<div class="actions columns large-2 medium-3">
-    <h3><?= __('Actions') ?></h3>
-    <ul class="side-nav">
-        <li><?= $this->Html->link(__('New Rockprog Supervisor'), ['action' => 'add']) ?></li>
-    </ul>
-</div>
-<div class="rockprogSupervisors index large-10 medium-9 columns">
-    <table cellpadding="0" cellspacing="0">
-    <thead>
-        <tr>
-            <th><?= $this->Paginator->sort('id') ?></th>
-            <th><?= $this->Paginator->sort('first_name') ?></th>
-            <th><?= $this->Paginator->sort('last_name') ?></th>
-            <th><?= $this->Paginator->sort('mobile') ?></th>
-            <th><?= $this->Paginator->sort('email') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach ($rockprogSupervisors as $rockprogSupervisor): ?>
-        <tr>
-            <td><?= $this->Number->format($rockprogSupervisor->id) ?></td>
-            <td><?= h($rockprogSupervisor->first_name) ?></td>
-            <td><?= h($rockprogSupervisor->last_name) ?></td>
-            <td><?= h($rockprogSupervisor->mobile) ?></td>
-            <td><?= h($rockprogSupervisor->email) ?></td>
-            <td><?= h($rockprogSupervisor->created) ?></td>
-            <td><?= h($rockprogSupervisor->modified) ?></td>
-            <td class="actions">
-                <?= $this->Html->link(__('View'), ['action' => 'view', $rockprogSupervisor->id]) ?>
-                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $rockprogSupervisor->id]) ?>
-                <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $rockprogSupervisor->id], ['confirm' => __('Are you sure you want to delete # {0}?', $rockprogSupervisor->id)]) ?>
-            </td>
-        </tr>
+<?php
+   $this->Rita->setPageCaption('برنامه‌ها')->setPageCaption ('فعالیت‌ها');
+   $this->Rita->setPageNote('تمامی فعالیت‌های تعریف شده به شرح ذیل می باشد.');
+?>
+<div class="ui-panel-framed ">
+	<div class="panel-header bg-flat">
+		<div class="header-caption">فهرست</div>
+	</div>
+	<div class="panel-body padding-none ">
+		<div class="body-header padding-none">
+			<div class="ui-toolbar">
+				<div class="toolbar-band ">
+					<?= $this->Html->bottunIcon('سرپرست جدید', 'mdi-plus-circle',['action' => 'add'] ); ?>
+					
+				</div>
+			</div>
+		</div>
+		<div class="body-splitter"></div>
+		<div class="body-container padding-none">
 
-    <?php endforeach; ?>
-    </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-        </ul>
-        <p><?= $this->Paginator->counter() ?></p>
-    </div>
+            <div class="ui-dataGrid">
+                <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th width="25px"><?= $this->Paginator->sort('id', '#') ?></th>
+                        <th width="76px">تصویر</th>
+                        <th><?= $this->Paginator->sort('full_name', 'نام خوانوادگی') ?></th>
+                        <th width="115px"><?= $this->Paginator->sort('mobile', 'همراه') ?></th>
+                        <th><?= $this->Paginator->sort('email', 'ایمیل') ?></th>
+                        <th width="90px"><?= $this->Paginator->sort('created', 'ایجاد') ?></th>
+                        <th width="90px"><?= $this->Paginator->sort('modified', 'ویرایش') ?></th>
+                        <th width="140px" class="actions"><?= __('عملیات') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($Supervisors as $Supervisor): ?>
+                    <tr>
+                        <td><?= $this->Number->format($Supervisor->id) ?></td>
+                        <td><?= $this->Html->image($Supervisor->avator) ?></td>
+                        <td><?= h($Supervisor->full_name) ?></td>
+                        <td><?= p($Supervisor->mobile) ?></td>
+                        <td><?= h($Supervisor->email) ?></td>
+                        <td><?= h($Supervisor->created) ?></td>
+                        <td><?= h($Supervisor->modified) ?></td>
+                        <td class="actions">
+            
+                            <?= $this->Html->link(__('ویرایش'), ['action' => 'edit', $Supervisor->id],['class' => 'btn btn-green']) ?>
+                            <?= $this->Form->postLink(__('حذف'), ['action' => 'delete', $Supervisor->id], ['class' => 'btn btn-red', 'confirm' => __('آیااطمینان کامل دارید از حذف رکورد # {0}؟', $Supervisor->id)]) ?>
+                        </td>
+                    </tr>
+            
+                <?php endforeach; ?>
+                </tbody>
+                </table>
+    
+            </div>
+
+	   </div>
+
+	</div>
 </div>
+

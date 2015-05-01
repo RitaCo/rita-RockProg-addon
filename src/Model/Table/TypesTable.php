@@ -3,7 +3,7 @@ namespace RockProg\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
-use Cake\ORM\Table;
+use Rita\Core\ORM\Table;
 use Cake\Validation\Validator;
 use RockProg\Model\Entity\Type;
 
@@ -24,7 +24,9 @@ class TypesTable extends Table
         $this->table('rockprog_types');
         $this->displayField('title');
         $this->primaryKey('id');
+        $this->addBehavior('Rita/Tools.Slug');
         $this->addBehavior('Timestamp');
+
     }
 
     /**
@@ -39,11 +41,7 @@ class TypesTable extends Table
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
             ->requirePresence('title', 'create')
-            ->notEmpty('title')
-            ->requirePresence('note', 'create')
-            ->notEmpty('note')
-            ->requirePresence('slug', 'create')
-            ->notEmpty('slug');
+            ->notEmpty('title');
 
         return $validator;
     }

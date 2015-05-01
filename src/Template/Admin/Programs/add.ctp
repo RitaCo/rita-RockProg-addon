@@ -9,17 +9,14 @@
 		<div class="header-caption">فهرست</div>
 	</div>
 	<div class="panel-body padding-none ">
-      <?= $this->Form->create($Supervisor); ?>
+      <?= $this->Form->create($Program); ?>
        
 		<div class="body-container padding-none">
-        <?php  
-            echo $this->Form->input('first_name', ['label' => 'نام']);
-            echo $this->Form->input('last_name', ['label' => 'نام خانوادگی']);
-            echo $this->Form->input('bio', ['label' => 'بیوگرافی']);
-            echo $this->Form->input('mobile',['label' => 'همراه' , 'dir' => 'ltr']);
-            echo $this->Form->input('email', ['label' => 'ایمیل', 'dir' => 'ltr']);
-       ?>
- 
+            <?= $this->Form->input('title',['label' => 'عوان برنامه']); ?>
+        <div class="form-col">
+            <?= $this->Form->input('category_id', ['options' => $Categories, 'label' => 'گروه', 'empty' => '[انتخاب کنید]']); ?>            
+            <?= $this->Form->input('type_id', ['options' => $Types, 'label' => 'فعالیت', 'empty' => '[انتخاب کنید]']); ?>
+        </div>            
 	</div>
     <div class="body-footer ">
            		<?= $this->Html->bottunIcon('بازگشت','mdi-forward',['action' => 'index']); ?>
@@ -29,4 +26,3 @@
     <?= $this->Form->end() ?>
 	</div>
 </div>
-

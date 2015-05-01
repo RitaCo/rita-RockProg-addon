@@ -1,7 +1,7 @@
 <?php
-namespace \Controller\Admin;
+namespace RockProg\Controller\Admin;
 
-use \Controller\AppController;
+use RockProg\Controller\AppController;
 
 /**
  * Supervisors Controller

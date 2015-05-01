@@ -1,7 +1,7 @@
 <?php
 namespace RockProg\Model\Entity;
 
-use Cake\ORM\Entity;
+use Rita\Core\ORM\Entity;
 
 /**
  * Type Entity.
@@ -16,7 +16,6 @@ class Type extends Entity
      */
     protected $_accessible = [
         'title' => true,
-        'note' => true,
         'slug' => true,
     ];
 }
