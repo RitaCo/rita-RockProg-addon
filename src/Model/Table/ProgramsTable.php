@@ -63,9 +63,9 @@ class ProgramsTable extends Table
             ->allowEmpty('title')
             ->add('status', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('status')
-            ->add('event', 'valid', ['rule' => 'date'])
+          //  ->add('event', 'valid', ['rule' => 'date'])
             ->allowEmpty('event')
-            ->add('deadline', 'valid', ['rule' => 'date'])
+            //->add('deadline', 'valid', ['rule' => 'date'])
             ->allowEmpty('deadline')
             ->allowEmpty('price');
 
@@ -97,7 +97,7 @@ class ProgramsTable extends Table
     {
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
         $rules->add($rules->existsIn(['type_id'], 'Types'));
-        $rules->add($rules->existsIn(['supervior_id'], 'Superviors'));
+        $rules->add($rules->existsIn(['supervior_id'], 'Supervisors'));
         return $rules;
     }
 }

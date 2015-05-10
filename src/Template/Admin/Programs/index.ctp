@@ -28,7 +28,7 @@
             <th><?= $this->Paginator->sort('rockprog_supervior_id', 'سرپرست') ?></th>
             <th><?= $this->Paginator->sort('status', 'وضعیت') ?></th>
             <th><?= $this->Paginator->sort('event', '') ?></th>
-            <th><?= $this->Paginator->sort('created', '') ?></th>
+            <th><?= $this->Paginator->sort('deadline', '') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -44,8 +44,8 @@
             </td>
             <td><?= $this->Number->format($Program->rockprog_supervior_id) ?></td>
             <td><?= $this->Number->format($Program->status) ?></td>
-            <td><?= h($Program->event) ?></td>
-            <td><?= h($Program->created) ?></td>
+            <td><?php //$Program->event->i18nFormat("yy/MM/dd")  ?></td>
+            <td><?= h($Program->deadline->i18nFormat("yyyy/MM/dd")) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $Program->id]) ?>
                             <?= $this->Html->link(__('ویرایش'), [ 'action' => 'edit', $Program->id],['class' => 'btn btn-green']) ?>

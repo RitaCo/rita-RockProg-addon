@@ -80,6 +80,7 @@ class SupervisorsController extends AppController
                 $this->Flash->error('The  supervisor could not be saved. Please, try again.');
             }
         }
+        
         $this->set(compact('Supervisor'));
         $this->set('_serialize', ['Supervisor']);
     }

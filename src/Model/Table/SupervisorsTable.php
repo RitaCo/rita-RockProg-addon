@@ -22,7 +22,7 @@ class SupervisorsTable extends Table
     public function initialize(array $config)
     {
         $this->table('rockprog_supervisors');
-        $this->displayField('title');
+        $this->displayField('full_name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
         $this->addBehavior('Rita/Tools.Slug');
