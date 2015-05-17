@@ -4,8 +4,8 @@
    ->setPageCaption('ویرایش');
    $this->Rita->setPageNote('شما همکنون می‌توانید سایر فیلد‌های مورد نیاز را تکمیل نمایید.');
    
-   $deadline = is_object($Program->deadline)? $Program->deadline->i18nFormat("yyyy-MM-dd",null, 'en_IR') : null;
-   $event = is_object($Program->event)? $Program->event->i18nFormat("yyyy-MM-dd",null, 'en_IR') : null;
+   //$deadline = is_object($Program->deadline)? $Program->deadline->i18nFormat("yyyy-MM-dd",null, 'en_IR') : null;
+   //$event = is_object($Program->event)? $Program->event->i18nFormat("yyyy-MM-dd",null, 'en_IR') : null;
    
 ?>
 <div class="ui-panel-framed ">
@@ -24,7 +24,11 @@
                 </div>
             </div>
             <div class="group-inputs">                            
-                
+ <?= $this->Form->time('test2', [
+            'timeFormat' => 12,
+            'interval' => 5,
+            'value' => ['hour' => '4', 'minute' => '30', 'meridian' => 'pm']
+        ]); ?>               
                     <?=  $this->Form->input('price',['label' => 'هزینه'] )?>
                 
                 <div class="form-col">
@@ -35,40 +39,145 @@
 
                      <?=  $this->Form->input('event', ['label' => 'تاریخ برنامه']); ?>
                      <?php  //$this->Form->input('deadline', ['label' => 'تاریخ ثبت نام']); ?>
-                     <?=  $this->Form->input('deadline', ['label' => 'deadline -'.\Cake\I18n\Time::$defaultLocale]); ?>
+                     <?=  $this->Form->input('deadline', ['label' => 'deadline -' .\Cake\I18n\Time::getDefaultLocale()]); ?>
                 </div>
                 
             </div>
-            <div class="group-inputs">                               
-            <?php
+            <div class="group-inputs" style="direction: ltr;">                               
+            
+<?php
+        $type = 'datetime';
+ 
 
-        $type = 'date';
+echo $this->Form->input('deadline1', [
+    'label' => 'deadline( en_us > America/Sao_Paulo  ) ',
+    'locale' => 'en_US',
+    'type' => $type ,
+    'value' => $Program->deadline,
+    'timezone'=>'America/Sao_Paulo',
+]); 
+echo $this->Form->input('deadline11', [
+    'label' => 'deadline( en_us > America/Sao_Paulo / no value  ) ',
+    
+    'type' => $type ,
+    
+]); 
 
+echo $this->Form->input('deadline2', [
+    'label' => 'deadline( ps_af > Asia/Kabul ) ',
+    'locale' => 'ps_AF',
+    'timezone'=>'Asia/Kabul',
+    'value' => $Program->deadline,
+    'type' => $type ,
+]); 
+
+echo $this->Form->input('deadline2', [
+    'label' => 'deadline( false > Asia/Kabul ) ',
+    'locale' => false,
+    'value' => $Program->deadline,
+    'type' => $type ,
+]);
+
+//echo $this->Form->input('deadline3', [
+//    'label' => 'deadline( fa_AF > Asia/Tehran ) ',
+//    'locale' => 'fa_AF',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]); 
+//
+//echo $this->Form->input('deadline4', [
+//    'label' => 'deadline( th_TH > Asia/Tehran ) ',
+//    'locale' => 'th_TH',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]);      
+//
+//echo $this->Form->input('deadline2', [
+//    'label' => 'deadline( es_ES > Asia/Tehran ) ',
+//    'locale' => 'es_ES',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]);      
+//
+//echo $this->Form->input('deadline2', [
+//    'label' => 'deadline( hi_IN > Asia/Tehran ) ',
+//    'locale' => 'hi_IN',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]); 
+echo $this->Form->input('deadline2', [
+    'label' => 'deadline( fa_IR@calendar=islamic > Asia/Tehran ) ',
+    'locale' => 'fa_IR@calendar=islamic',
+    'timezone'=>'Asia/Tehran',
+    'value' => $Program->deadline,
+    'type' => $type ,
+]);      
+//                    
+//echo $this->Form->input('deadline2', [
+//    'label' => 'deadline( es_ES > Asia/Tehran ) ',
+//    'locale' => 'es_ES',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]);      
+//
+//echo $this->Form->input('deadline2', [
+//    'label' => 'deadline( ar_IQ > Asia/Tehran ) ',
+//    'locale' => 'ar_IQ',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]);      
+//                     
+//echo $this->Form->input('deadline2', [
+//    'label' => 'deadline( ar_IQ@calendar=islamic > Asia/Tehran ) ',
+//    'locale' => 'ar_IQ@calendar=islamic',
+//    'timezone'=>'Asia/Tehran',
+//    'value' => $Program->deadline,
+//    'type' => $type ,
+//]);    
+//
+//
+//echo  $this->Form->input('deadline63', [
+//    'label' => 'deadline( ja-JP > Asia/Tokyo ) ',
+//    'locale' => 'ja-JP',
+//    'timezone' => 'Asia/Tokyo', 
+//    'calendar' => 'japanese',
+//    'type' => $type,
+//    'value' => $Program->deadline
+//]); 
+//
+//echo  $this->Form->input('deadline63', [
+//    'label' => 'deadline( ja-JP@calendar=japanese > Asia/Tokyo ) ',
+//    'locale' => 'ja-JP@calendar=japanese',
+//    'timezone' => 'Asia/Tokyo', 
+//    'type' => $type,
+//    'value' => $Program->deadline
+//]); 
+//
+//
+//echo $this->Form->input('deadline633', [
+//    'label' => 'deadline( iw_IL > Asia/Tokyo ) ',
+//    'locale' => 'iw_IL',
+//    'timezone' => 'Asia/Tokyo',  
+//    'type' => $type,
+//    'value' => $Program->deadline
+//]); 
+//
+//echo $this->Form->input('deadline633', [
+//    'label' => 'deadline( fa_IL > Asia/Tehran ) ',
+//    'locale' => 'fa_IL',
+//    'timezone' => 'Asia/Tehran',  
+//    'type' => $type,
+//    'value' => $Program->deadline
+//]); 
+//
 ?>
-                     <?=  $this->Form->input('deadline1', ['label' => 'deadline -en_us', 'locale' => 'en_US', 'calendar' => 'persian','type' => $type ,'value' => $Program->deadline]); ?>
-
-                     <?=  $this->Form->input('deadline2', ['label' => 'deadline -ps_AF', 'locale' => 'ps_AF','calendar' => 'persian','timezone'=>'Asia/Kabul','type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline3', ['label' => 'deadline -fa_AF' , 'locale' => 'fa_AF','type' => $type,'value' => $Program->deadline]); ?>
-     
-
-                     <?=  $this->Form->input('deadline4', ['label' => 'deadline - th_TH', 'locale' => 'th_TH' , 'type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline5', ['label' => 'deadline -es_ES' , 'locale' => 'es_ES','type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline34', ['label' => 'deadline -fa_IR@calendar=islamic', 'locale' => 'fa_IR@calendar=islamic' , 'type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline5', ['label' => 'deadline - 	ar_IQ' , 'locale' => 'ar_IQ@calendar=islamic','type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline6', ['label' => 'deadline - 	defualt' , 'type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline63', [
-                        'label' => 'deadline - 	ja-JP', 
-                        'locale' => 'ja-JP',
-                        'timezone' => 'Asia/Tokyo', 
-                         'calendar' => 'japanese',
-                        'type' => $type,'value' => $Program->deadline]); ?>
-                     <?=  $this->Form->input('deadline633', [
-                        'label' => 'deadline - 	iw_IL', 
-                        'locale' => 'iw_IL', 
-//                        'calendar' => 'persian', 
-                        'type' => $type,'value' => $Program->deadline
-                        ]); ?>
-       
+  
      
             </div>
 	</div>

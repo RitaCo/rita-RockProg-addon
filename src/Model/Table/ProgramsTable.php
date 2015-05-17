@@ -7,7 +7,7 @@ use Rita\Core\ORM\Table;
 use Cake\Validation\Validator;
 use RockProg\Model\Entity\Program;
 use Cake\Database\Type;
-Type::build('datetime')->useLocaleParser()->setLocaleFormat([\IntlDateFormatter::SHORT, -1]);
+
 /**
  * Programs Model
  */
@@ -38,7 +38,7 @@ class ProgramsTable extends Table
             'className' => 'RockProg.Types'
         ]);
         $this->belongsTo('Supervisors', [
-            'foreignKey' => 'program_id',
+            'foreignKey' => 'supervior_id',
             'joinType' => 'INNER',
             'className' => 'RockProg.Supervisors'
         ]);

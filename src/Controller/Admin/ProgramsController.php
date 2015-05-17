@@ -18,7 +18,16 @@ class ProgramsController extends AppController
      */
     public function index()
     {
-        $this->set('Programs', $this->paginate($this->Programs));
+        $status = [
+            0 => 'پیشنویس',
+            1 => 'فعال',
+            2 => 'آرشیو',
+            3 => 'کنسل',
+        ];
+        
+        $query = $this->Programs->find('all',['contain' => ['Categories','Types', 'Supervisors']]);
+        $this->set('status',$status);
+        $this->set('Programs', $this->paginate($query));
         $this->set('_serialize', ['Programs']);
     }
 
