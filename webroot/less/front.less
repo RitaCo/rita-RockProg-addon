@@ -1,0 +1,45 @@
+@import (reference) "G:\xampp\htdocs\RitaLess\rita-base";
+
+
+#Front-grid{
+    display: block;
+    
+
+    .prog-block{
+        display: block;
+        border-radius: 3px;
+        overflow: hidden;
+        margin: 50px 5%;
+        
+        position: relative;
+        
+        .ui-tab .tab--nav{
+            background-color: #4A5665;
+            
+            li:not(.active) a,
+            li:hover:not(.active) a,
+            {
+                color: #fff;
+            }
+            
+            
+            .active{
+                box-shadow: 2px -2px 0px 1px rgba(255, 255, 255, 0.43);
+            }
+        }
+        
+        .caption{
+            top: -50px;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: calc(~"50% - 50px");
+            font-family: wtitr;
+            font-size: 1.5em;
+            text-align: center;
+            display: block;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+    }
+}

@@ -1,0 +1,33 @@
+#Front-grid {
+  display: block;
+}
+#Front-grid .prog-block {
+  display: block;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 50px 5%;
+  position: relative;
+}
+#Front-grid .prog-block .ui-tab .tab--nav {
+  background-color: #4A5665;
+}
+#Front-grid .prog-block .ui-tab .tab--nav li:not(.active) a,
+#Front-grid .prog-block .ui-tab .tab--nav li:hover:not(.active) a {
+  color: #fff;
+}
+#Front-grid .prog-block .ui-tab .tab--nav .active {
+  box-shadow: 2px -2px 0px 1px rgba(255, 255, 255, 0.43);
+}
+#Front-grid .prog-block .caption {
+  top: -50px;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 50px);
+  font-family: wtitr;
+  font-size: 1.5em;
+  text-align: center;
+  display: block;
+  background-color: #fff;
+  border-radius: 50%;
+}

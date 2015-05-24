@@ -1,7 +1,7 @@
 <?php
 namespace RockProg\Model\Entity;
 
-use Cake\ORM\Entity;
+use Rita\Core\ORM\Entity;
 
 /**
  * RockprogDetail Entity.

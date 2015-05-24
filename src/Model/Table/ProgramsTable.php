@@ -43,11 +43,19 @@ class ProgramsTable extends Table
             'className' => 'RockProg.Supervisors'
         ]);
         
-//        $this->hasOne('Details', [
-//            'foreignKey' => 'program_id',
-//            'className' => 'RockProg.Detials'
-//        ]);        
+        $this->hasOne('Details', [
+            'foreignKey' => 'program_id',
+            'className' => 'RockProg.Details'
+        ]);        
     }
+    
+    public $flaghSatus = [
+
+            0 => 'پیشنویس',
+            1 => 'فعال می‌باشد',
+            2 => 'تکمیل شده است',
+            3 => 'کنسل شده است'
+    ];
 
     /**
      * Default validation rules.
@@ -60,14 +68,14 @@ class ProgramsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->allowEmpty('title')
+            ->notEmpty('title')
             ->add('status', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('status')
-          //  ->add('event', 'valid', ['rule' => 'date'])
-            ->allowEmpty('event')
+            ->notEmpty('status')
+            // ->add('event', 'valid', ['rule' => 'date'])
+            ->notEmpty('event')
             //->add('deadline', 'valid', ['rule' => 'date'])
-            ->allowEmpty('deadline')
-            ->allowEmpty('price');
+            ->notEmpty('deadline')
+            ->notEmpty('price');
 
         return $validator;
     }

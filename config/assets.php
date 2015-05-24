@@ -4,6 +4,7 @@ return [
         'base' => [
         ],
         'front' => [
+            'RockProg.front'
         ],
         'client' => [
         ],

@@ -26,5 +26,6 @@ class Program extends Entity
         'category' => true,
         'type' => true,
         'supervior' => true,
+        'detail' => true
     ];
 }

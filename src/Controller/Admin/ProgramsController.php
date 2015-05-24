@@ -18,15 +18,9 @@ class ProgramsController extends AppController
      */
     public function index()
     {
-        $status = [
-            0 => 'پیشنویس',
-            1 => 'فعال',
-            2 => 'آرشیو',
-            3 => 'کنسل',
-        ];
         
         $query = $this->Programs->find('all',['contain' => ['Categories','Types', 'Supervisors']]);
-        $this->set('status',$status);
+        $this->set('status', $this->Programs->flaghSatus);
         $this->set('Programs', $this->paginate($query));
         $this->set('_serialize', ['Programs']);
     }
@@ -54,7 +48,11 @@ class ProgramsController extends AppController
      */
     public function add()
     {
-        $Program = $this->Programs->newEntity();
+        $Program = $this->Programs->newEntity($this->request->data(),[
+            'associated' => [
+                'Details'
+            ]        
+        ]);
         if ($this->request->is('post')) {
             $Program = $this->Programs->patchEntity($Program, $this->request->data,[
                     'associated' => ['Details'],
@@ -85,10 +83,12 @@ class ProgramsController extends AppController
     public function edit($id = null)
     {
         $Program = $this->Programs->get($id, [
-            'contain' => []
+            'contain' => ['Details']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $Program = $this->Programs->patchEntity($Program, $this->request->data);
+            $Program = $this->Programs->patchEntity($Program, $this->request->data,[
+                 'associated' => ['Details'],
+            ]);
             if ($this->Programs->save($Program)) {
                 $this->Flash->success('عملیات ویرایش با موفقیت تمام اجرا گردید');
                 return $this->redirect(['action' => 'index']);
@@ -97,12 +97,7 @@ class ProgramsController extends AppController
             }
         }
         
-        $status = [
-            0 => 'پیشنویس',
-            1 => 'فعال',
-            2 => 'آرشیو',
-            3 => 'کنسل',
-        ];
+        $status = $this->Programs->flaghSatus;
         
         $Categories = $this->Programs->Categories->find('list')->all();
         $Types = $this->Programs->Types->find('list')->all();

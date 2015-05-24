@@ -3,14 +3,14 @@ namespace RockProg\Model\Table;
 
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
-use Cake\ORM\Table;
+use Rita\Core\ORM\Table;
 use Cake\Validation\Validator;
 use RockProg\Model\Entity\RockprogDetail;
 
 /**
  * RockprogDetails Model
  */
-class RockprogDetailsTable extends Table
+class DetailsTable extends Table
 {
 
     /**
