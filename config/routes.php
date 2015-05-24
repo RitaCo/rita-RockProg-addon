@@ -6,21 +6,21 @@ Router::scope('/', ['prefix' => 'front'], function ($routes) {
          $routes->connect('/', ['controller' => 'programs', 'action' => 'index']);
           $routes->connect(
             '/:id/:slug', 
-            ['controller' => 'posts', 'action' => 'view'],
+            ['controller' => 'programs', 'action' => 'view'],
             [
                 'id' => '[0-9]+',
                 'pass' => ['id', 'slug'],
-                '_name' => 'www.post'  
+                
             ]
          );
          
           $routes->connect(
             '/category/:id/:slug', 
-            ['controller' => 'categories', 'action' => 'view'],
+            ['controller' => 'programs', 'action' => 'category'],
             [
                 'id' => '[0-9]+',
                 'pass' => ['id', 'slug'],
-                '_name' => 'www.cat'   
+                
             ]
          );
          
